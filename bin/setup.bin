@@ -1,0 +1,275 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.9
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 07, 2020 at 01:35 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `dbbagshop-ecommerce`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `uname` varchar(250) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `pname` varchar(250) NOT NULL,
+  `pid` int(50) NOT NULL,
+  `path` varchar(250) NOT NULL,
+  `qty` int(30) NOT NULL,
+  `price` bigint(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`uname`, `phone`, `pname`, `pid`, `path`, `qty`, `price`) VALUES
+('jay', '7000000000', 'sky bag school edition', 79, 'IMG_20200210_092719.jpg', 1, 600);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE `login` (
+  `id` int(50) NOT NULL,
+  `phone` varchar(50) NOT NULL DEFAULT '',
+  `upass` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `phone`, `upass`) VALUES
+(1, '1234567890', 'admin123'),
+(2, '9999999999', 'admin@123');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ordertable`
+--
+
+CREATE TABLE `ordertable` (
+  `id` int(11) NOT NULL,
+  `pid` varchar(10) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `phone` varchar(200) NOT NULL,
+  `mdetails` varchar(300) NOT NULL,
+  `prize` varchar(200) NOT NULL,
+  `path` varchar(250) NOT NULL,
+  `qty` varchar(200) NOT NULL,
+  `orderid` varchar(100) NOT NULL,
+  `oday` int(100) NOT NULL,
+  `omonth` varchar(100) NOT NULL,
+  `oyear` varchar(100) NOT NULL,
+  `deliverydate` int(100) NOT NULL,
+  `deliverymonth` varchar(50) NOT NULL,
+  `deliveryyear` int(50) NOT NULL,
+  `pmethod` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ordertable`
+--
+
+INSERT INTO `ordertable` (`id`, `pid`, `name`, `phone`, `mdetails`, `prize`, `path`, `qty`, `orderid`, `oday`, `omonth`, `oyear`, `deliverydate`, `deliverymonth`, `deliveryyear`, `pmethod`) VALUES
+(23, '2', 'aarti', '9922840819', 'sky Bag TRAVEL BAG', '700', 'IMG_20200210_092617.jpg', '1', '732515189', 6, 'March', '2020', 8, 'March', 2020, 'Through Card');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `cardno` varchar(100) NOT NULL,
+  `pmethod` varchar(50) NOT NULL,
+  `pid` int(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`name`, `phone`, `cardno`, `pmethod`, `pid`) VALUES
+('Yogesh', '1234567890', '0000000000000000', 'Cash On Delivery', 25),
+('Yogesh', '1234567890', '0000000000000000', 'Cash On Delivery', 62),
+('Yogesh', '1234567890', '1234567891234567', 'Through Card', 64),
+('Yogesh', '1234567890', '1000000000000000', 'Through Card', 25),
+('Yogesh', '1234567890', '1000000000000000', 'Through Card', 25),
+('Yogesh', '1234567890', '1000000000000000', 'Through Card', 0),
+('Yogesh', '1234567890', '1000000000000000', 'Through Card', 27),
+('Yogesh', '1234567890', '1000000000000000', 'Through Card', 24),
+('jay', '7000000000', '1000000000000000', 'Through Card', 79),
+('aarti', '9922840819', '0000000000000000', 'Cash On Delivery', 79),
+('aarti', '9922840819', '0000000000000000', 'Cash On Delivery', 79),
+('aarti', '9922840819', '0000000000000000', 'Cash On Delivery', 87),
+('aarti', '9922840819', '0000000000000000', 'Cash On Delivery', 1),
+('aarti', '9922840819', '||', 'Through Card', 2),
+('aarti', '9922840819', '1==1 || s--s', 'Through Card', 2),
+('aarti', '9922840819', '10>1 || 10>1', 'Through Card', 84),
+('aarti', '9922840819', '10>1 || 10>1', 'Through Card', 1),
+('aarti', '9922840819', '| 1==1', 'Through Card', 1),
+('aarti', '9922840819', '| lkh', 'Through Card', 1),
+('aarti', '9922840819', ' || ss>', 'Through Card', 1),
+('aarti', '9922840819', ' || ss>', 'Through Card', 1),
+('aarti', '9922840819', ' || ss>', 'Through Card', 1),
+('aarti', '9922840819', '1', 'Through Card', 1),
+('aarti', '9922840819', '', 'Through Card', 1),
+('aarti', '9922840819', '|', 'Through Card', 1),
+('aarti', '9922840819', '||', 'Through Card', 1),
+('aarti', '9922840819', '|', 'Through Card', 1),
+('aarti', '9922840819', '1', 'Through Card', 1),
+('aarti', '9922840819', 'q', 'Through Card', 87),
+('aarti', '9922840819', '111', 'Through Card', 1),
+('aarti', '9922840819', '111', 'Through Card', 87),
+('aarti', '9922840819', '', 'Through Card', 79),
+('aarti', '9922840819', '', 'Through Card', 1),
+('aarti', '9922840819', '', 'Through Card', 2),
+('aarti', '9922840819', '', 'Through Card', 2),
+('aarti', '9922840819', '12', 'Through Card', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `pname` varchar(200) NOT NULL,
+  `price` int(50) NOT NULL,
+  `qty` int(30) NOT NULL DEFAULT '1',
+  `pid` int(20) NOT NULL,
+  `pcategory` varchar(50) NOT NULL,
+  `path` varchar(300) NOT NULL,
+  `description` varchar(255) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`pname`, `price`, `qty`, `pid`, `pcategory`, `path`, `description`) VALUES
+('nike bag sport edition', 1500, 10, 80, 'nike', 'IMG_20200210_094531.jpg', 'nikes finest creation'),
+('american tourister travelbag', 2500, 13, 87, 'americantourister', 'IMG_20200210_094345.jpg', 'in this travel bag you will get so much of fun'),
+('tomy hilfiger', 3000, 10, 86, 'tomyhilfiger', 'IMG_20200210_100217.jpg', 'best product from tomyhilfiger'),
+('adidas sport', 2100, 10, 85, 'adidas', 'IMG_20200210_094654.jpg', 'adida sport edition'),
+('adidas premium', 2000, 19, 84, 'adidas', 'IMG_20200210_094747.jpg', 'adidas from premium collection'),
+('nike red', 900, 20, 83, 'nike', 'IMG_20200210_094516.jpg', 'nike in red color'),
+('nike funky', 900, 10, 82, 'nike', 'IMG_20200210_094500.jpg', 'nike funky stylish  bag'),
+('nike bag office edition', 800, 10, 81, 'nike', 'IMG_20200210_094445.jpg', 'nike bags for office'),
+('sky bag sport Bag', 1000, -5, 1, 'skybags', 'IMG_20200210_092659.jpg', 'feeling sporty ? get it now. sky bag sport edition'),
+('sky Bag TRAVEL BAG', 700, -6, 2, 'skybags', 'IMG_20200210_092617.jpg', 'classic product from skybags\r\n'),
+('sky bag school edition', 600, 7, 79, 'skybags', 'IMG_20200210_092719.jpg', 'skybags scholl edition');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `signup`
+--
+
+CREATE TABLE `signup` (
+  `id` int(11) NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `upass` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `zipcode` varchar(50) NOT NULL,
+  `address` varchar(100) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `STATUS` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `signup`
+--
+
+INSERT INTO `signup` (`id`, `fname`, `lname`, `email`, `upass`, `state`, `zipcode`, `address`, `phone`, `STATUS`) VALUES
+(7, 'aarti', 'pande', 'aarti@gmail.com', '1234', 'Maharashtra', '421306', 'at panvel', '9922840819', 0),
+(6, 'jay', 'aawte', 'jayaawte@gmail.com', '1234', '', '', 'q\r\nq', '7000000005', 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `login`
+--
+ALTER TABLE `login`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ordertable`
+--
+ALTER TABLE `ordertable`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`pid`);
+
+--
+-- Indexes for table `signup`
+--
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `login`
+--
+ALTER TABLE `login`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ordertable`
+--
+ALTER TABLE `ordertable`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `pid` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+
+--
+-- AUTO_INCREMENT for table `signup`
+--
+ALTER TABLE `signup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
